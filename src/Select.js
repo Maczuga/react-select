@@ -109,7 +109,7 @@ class Select extends React.Component {
 		};
 	}
 
-	componentWillMount () {
+	UNSAFE_componentWillMount () {
 		this._instancePrefix = `react-select-${(this.props.instanceId || ++instanceId)}-`;
 		const valueArray = this.getValueArray(this.props.value);
 
@@ -129,7 +129,7 @@ class Select extends React.Component {
 		}
 	}
 
-	componentWillReceiveProps (nextProps) {
+	UNSAFE_componentWillReceiveProps (nextProps) {
 		const valueArray = this.getValueArray(nextProps.value, nextProps);
 
 		if (nextProps.required) {
@@ -574,7 +574,7 @@ class Select extends React.Component {
 	 * @returns	{Array}	the value of the select represented in an array
 	 */
 	getValueArray (value, nextProps = undefined) {
-		/** support optionally passing in the `nextProps` so `componentWillReceiveProps` updates will function as expected */
+		/** support optionally passing in the `nextProps` so `UNSAFE_componentWillReceiveProps` updates will function as expected */
 		const props = typeof nextProps === 'object' ? nextProps : this.props;
 		if (props.multi) {
 			if (typeof value === 'string') {

@@ -2784,7 +2784,7 @@ describe('Select', () => {
 				clickArrowToOpen();
 				typeSearchText('tw');
 				pressEnterToAccept();
-				setValueProp('two'); // trigger componentWillReceiveProps
+				setValueProp('two'); // trigger UNSAFE_componentWillReceiveProps
 
 				expect(instance.state.inputValue, 'to equal', 'tw');
 				expect(
@@ -2835,7 +2835,7 @@ describe('Select', () => {
 				typeSearchText('tw');
 				expect(instance.state.inputValue, 'to equal', 'tw');
 				pressEnterToAccept();
-				setValueProp('two'); // trigger componentWillReceiveProps
+				setValueProp('two'); // trigger UNSAFE_componentWillReceiveProps
 
 				expect(instance.state.inputValue, 'to equal', '');
 				expect(
@@ -2863,7 +2863,7 @@ describe('Select', () => {
 				clickArrowToOpen();
 				typeSearchText('two');
 				pressEnterToAccept();
-				setValueProp('two'); // trigger componentWillReceiveProps
+				setValueProp('two'); // trigger UNSAFE_componentWillReceiveProps
 
 				expect(instance.state.inputValue, 'to equal', 'two');
 			});
@@ -2881,7 +2881,7 @@ describe('Select', () => {
 				typeSearchText('two');
 				expect(instance.state.inputValue, 'to equal', 'two');
 				pressEnterToAccept();
-				setValueProp('two'); // trigger componentWillReceiveProps
+				setValueProp('two'); // trigger UNSAFE_componentWillReceiveProps
 
 				expect(instance.state.inputValue, 'to equal', '');
 			});

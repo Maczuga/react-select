@@ -19,7 +19,7 @@ module.exports = {
 			css: 'lessc less/default.less dist/react-select.css',
 			cssmin: 'lessc --clean-css less/default.less dist/react-select.min.css',
 			standalone: series(
-				'cp examples/src/standalone.html examples/dist/standalone.html',
+				'copy examples\\src\\standalone.html examples\\dist\\standalone.html',
 				'lessc examples/src/example.less examples/dist/example.css'
 			),
 		},
@@ -27,7 +27,7 @@ module.exports = {
 			default: series(
 				rimraf('examples/dist'),
 				'webpack --progress -p',
-				'cp examples/src/.gitignore examples/dist/.gitignore',
+				'copy examples\\src\\.gitignore examples\\dist\\.gitignore',
 				'gh-pages -d examples/dist'
 			),
 		},

@@ -726,8 +726,8 @@ var Select$1 = function (_React$Component) {
 	}
 
 	createClass(Select, [{
-		key: 'componentWillMount',
-		value: function componentWillMount() {
+		key: 'UNSAFE_componentWillMount',
+		value: function UNSAFE_componentWillMount() {
 			this._instancePrefix = 'react-select-' + (this.props.instanceId || ++instanceId) + '-';
 			var valueArray = this.getValueArray(this.props.value);
 
@@ -748,8 +748,8 @@ var Select$1 = function (_React$Component) {
 			}
 		}
 	}, {
-		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps(nextProps) {
+		key: 'UNSAFE_componentWillReceiveProps',
+		value: function UNSAFE_componentWillReceiveProps(nextProps) {
 			var valueArray = this.getValueArray(nextProps.value, nextProps);
 
 			if (nextProps.required) {
@@ -1233,7 +1233,7 @@ var Select$1 = function (_React$Component) {
 		value: function getValueArray(value) {
 			var nextProps = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
 
-			/** support optionally passing in the `nextProps` so `componentWillReceiveProps` updates will function as expected */
+			/** support optionally passing in the `nextProps` so `UNSAFE_componentWillReceiveProps` updates will function as expected */
 			var props = (typeof nextProps === 'undefined' ? 'undefined' : _typeof(nextProps)) === 'object' ? nextProps : this.props;
 			if (props.multi) {
 				if (typeof value === 'string') {
@@ -2102,8 +2102,8 @@ var Async = function (_Component) {
 			}
 		}
 	}, {
-		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps(nextProps) {
+		key: 'UNSAFE_componentWillReceiveProps',
+		value: function UNSAFE_componentWillReceiveProps(nextProps) {
 			if (nextProps.options !== this.props.options) {
 				this.setState({
 					options: nextProps.options
