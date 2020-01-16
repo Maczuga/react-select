@@ -158,7 +158,7 @@ class CreatableSelect extends React.Component {
 
 	render () {
 		const {
-			ref: refProp,
+			innerRef: refProp,
 			...restProps
 		} = this.props;
 
@@ -295,7 +295,7 @@ CreatableSelect.propTypes = {
 	// (filterText: string): string
 	promptTextCreator: PropTypes.func,
 
-	ref: PropTypes.func,
+	innerRef: PropTypes.func,
 
 	// Decides if a keyDown event (eg its `keyCode`) should result in the creation of a new option.
 	shouldKeyDownEventCreateNewOption: PropTypes.func,
