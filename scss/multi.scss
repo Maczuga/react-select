@@ -47,7 +47,6 @@
 	// label
 	.Select-value-label {
 		@include border-right-radius( $select-item-border-radius );
-		cursor: default;
 		padding: $select-item-padding-vertical $select-item-padding-horizontal;
 	}
 	a.Select-value-label {
