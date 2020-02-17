@@ -141,8 +141,10 @@ class Select extends React.Component {
 			this.setState({ required: false });
 		}
 
-		if (this.state.inputValue && this.props.value !== nextProps.value && nextProps.onSelectResetsInput) {
-			this.setState({ inputValue: this.handleInputValueChange('') });
+		if (this.state.inputValue && this.props.value !== nextProps.value) {
+			const renderLabel = this.props.optionRenderer || this.getOptionLabel;
+			const newValue = typeof nextProps.value === 'object' ? renderLabel(nextProps.value) : nextProps.value;
+			this.setState({ inputValue: this.handleInputValueChange(nextProps.onSelectResetsInput ? '' : newValue) });
 		}
 	}
 
@@ -261,6 +263,11 @@ class Select extends React.Component {
 		// if the event was triggered by a mousedown and not the primary
 		// button, or if the component is disabled, ignore it.
 		if (this.props.disabled || (event.type === 'mousedown' && event.button !== 0)) {
+			return;
+		}
+
+		// Allows user to select text from options
+		if (event.target.tagName === 'SPAN') {
 			return;
 		}
 
@@ -612,7 +619,10 @@ class Select extends React.Component {
 		if (this.props.closeOnSelect) {
 			this.hasScrolledToOption = false;
 		}
-		const updatedValue = this.props.onSelectResetsInput ? '' : this.state.inputValue;
+
+		const renderLabel = this.props.valueRenderer || this.getOptionLabel;
+		const updatedValue = this.props.onSelectResetsInput ? '' : renderLabel(value) || this.state.inputValue;
+
 		if (this.props.multi) {
 			this.setState({
 				focusedIndex: null,
