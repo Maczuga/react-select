@@ -150,6 +150,8 @@ class CreatableSelect extends React.Component {
 		} else {
 			this.select.selectValue(option);
 		}
+
+		this.onInputChange(option);
 	}
 
 	focus () {
