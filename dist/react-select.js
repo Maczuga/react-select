@@ -762,9 +762,11 @@ var Select$1 = function (_React$Component) {
 			}
 
 			if (this.state.inputValue && this.props.value !== nextProps.value) {
-				var renderLabel = this.props.optionRenderer || this.getOptionLabel;
-				var newValue = _typeof(nextProps.value) === 'object' ? renderLabel(nextProps.value) : nextProps.value;
-				this.setState({ inputValue: this.handleInputValueChange(nextProps.onSelectResetsInput ? '' : newValue) });
+				if (nextProps.onSelectResetsInput) {
+					this.setState({ inputValue: this.handleInputValueChange('') });
+				} else if (nextProps.value === null || nextProps.value === undefined || nextProps.value === '') {
+					this.setState({ inputValue: this.handleInputValueChange(nextProps.value) });
+				}
 			}
 		}
 	}, {

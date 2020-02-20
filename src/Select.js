@@ -141,11 +141,13 @@ class Select extends React.Component {
 			this.setState({ required: false });
 		}
 
-		if (this.state.inputValue && this.props.value !== nextProps.value) {
-			const renderLabel = this.props.optionRenderer || this.getOptionLabel;
-			const newValue = typeof nextProps.value === 'object' ? renderLabel(nextProps.value) : nextProps.value;
-			this.setState({ inputValue: this.handleInputValueChange(nextProps.onSelectResetsInput ? '' : newValue) });
-		}
+        if (this.state.inputValue && this.props.value !== nextProps.value) {
+            if (nextProps.onSelectResetsInput) {
+                this.setState({ inputValue: this.handleInputValueChange('') });
+            } else if (nextProps.value === null || nextProps.value === undefined || nextProps.value === '') {
+                this.setState({ inputValue: this.handleInputValueChange(nextProps.value) });
+            }
+        }
 	}
 
 	componentDidUpdate (prevProps, prevState) {
