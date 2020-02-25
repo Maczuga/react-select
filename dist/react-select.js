@@ -2441,8 +2441,6 @@ var CreatableSelect = function (_React$Component) {
 			} else {
 				this.select.selectValue(option);
 			}
-
-			this.onInputChange(option);
 		}
 	}, {
 		key: 'focus',
