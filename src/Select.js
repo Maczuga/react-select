@@ -455,6 +455,7 @@ class Select extends React.Component {
 	}
 
 	handleInputValueChange(newValue) {
+        newValue = newValue || '';
 		if (this.props.onInputChange) {
 			let nextState = this.props.onInputChange(newValue);
 			// Note: != used deliberately here to catch undefined and null

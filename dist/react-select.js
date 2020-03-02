@@ -1092,6 +1092,7 @@ var Select$1 = function (_React$Component) {
 	}, {
 		key: 'handleInputValueChange',
 		value: function handleInputValueChange(newValue) {
+			newValue = newValue || '';
 			if (this.props.onInputChange) {
 				var nextState = this.props.onInputChange(newValue);
 				// Note: != used deliberately here to catch undefined and null
