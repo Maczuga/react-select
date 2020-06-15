@@ -898,7 +898,7 @@ var Select$1 = function (_React$Component) {
 			}
 
 			// Allows user to select text from options
-			if (event.target.tagName === 'SPAN') {
+			if (this.props.multi && event.target.tagName === 'SPAN') {
 				return;
 			}
 

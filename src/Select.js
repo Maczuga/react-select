@@ -269,7 +269,7 @@ class Select extends React.Component {
 		}
 
 		// Allows user to select text from options
-		if (event.target.tagName === 'SPAN') {
+		if (this.props.multi && event.target.tagName === 'SPAN') {
 			return;
 		}
 
